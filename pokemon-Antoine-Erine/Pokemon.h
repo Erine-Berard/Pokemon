@@ -41,12 +41,13 @@ public:
 	int GetDefense();
 	int GetDefensespe();
 	int GetVitesse();
+	std::vector <Attaques> GetAttaques();
 
 	void SetPV(int pv);
 
 	void AjouterAttaque(Attaques *attaques);
 	void Attaquer(Pokemon& pokemon, Attaques attaques);
-	void UtiliserObjet(Objet objet);
+	void UtiliserObjet();
 	bool EstKO();
 	void AfficherAttaques();
 	void Afficher(); 

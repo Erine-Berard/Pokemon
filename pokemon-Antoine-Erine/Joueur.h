@@ -7,6 +7,8 @@
 
 class Pokemon;
 
+class Attaques;
+
 class Joueur {
 private:
 	std::string nom;
@@ -18,13 +20,15 @@ public:
 	Joueur(std::string nom, int argent);
 	~Joueur();
 
+	std::string GetNom();
+
 	void setNbVictoire(int nbVictoire);
 	void setArgent(int argent);
 
 	Pokemon ChoisirPokemon(std::vector <Pokemon> poke);
 	void AjouterPokemon(Pokemon& poke);
-	int ChoisirAttaque(Pokemon);
-	Pokemon RecupererPokemon();
+	Attaques ChoisirAttaque(Pokemon);
+	Pokemon RecupererPokemon(int i);
 	void AfficherPokemons();
 
 	void Afficher();

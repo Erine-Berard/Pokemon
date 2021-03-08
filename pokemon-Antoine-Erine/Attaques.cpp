@@ -75,7 +75,7 @@ int Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
 }
 
 void Attaques::Afficher(){
-	cout << "Information de l'attaque " << nom << ":" << endl
+	cout << "Son nom : " << nom << endl
 		<< "Son Type : " << type << endl
 		<< "Sa catégorie d'Attaque : ";
 	

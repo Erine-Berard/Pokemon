@@ -51,6 +51,10 @@ int Pokemon::GetVitesse(){
 	return Vitesse;
 }
 
+std::vector <Attaques> Pokemon::GetAttaques(){
+	return VectorAttaques;
+}
+
 void Pokemon::SetPV(int pv){
 	this->PV = pv;
 	return; 
@@ -76,7 +80,7 @@ void Pokemon::Attaquer(Pokemon& pokemon, Attaques attaques){
 	return;
 }
 
-void Pokemon::UtiliserObjet(Objet objet){
+void Pokemon::UtiliserObjet(){
 	objet.Action(*this);
 	return;
 }
@@ -101,7 +105,7 @@ void Pokemon::AfficherAttaques(){
 }
 
 void Pokemon::Afficher(){
-	cout << "Information sur le pokemon " << Nom << " :" << endl
+	cout << "Son Nom : " << Nom << endl
 	    << "Son prix : " << Prix << endl
 		<< "Son/ses type/s : ";
 

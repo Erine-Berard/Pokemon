@@ -1,5 +1,6 @@
 #include "Joueur.h"
 #include "Pokemon.h"
+#include "Attaques.h"
 
 using namespace std;
 
@@ -9,6 +10,10 @@ Joueur::Joueur(std::string nom, int argent)
 }
 
 Joueur::~Joueur() {}
+
+string Joueur::GetNom(){
+	return nom;
+}
 
 void Joueur::setNbVictoire(int nbVictoire) {
 	this->nbVictoire = nbVictoire;
@@ -49,12 +54,32 @@ void Joueur::AjouterPokemon(Pokemon& poke){
 			i = -3;
 		}
 	}
-	
 	return;
+}
+
+Attaques Joueur::ChoisirAttaque(Pokemon poke){
+	vector<Attaques> attaques = poke.GetAttaques();
+
+	int tail = attaques.size();
+
+	for (int i = 0; i < tail; i++) {
+		cout << "Attaque "<< i+1 << " :" << endl;
+		attaques[i].Afficher();
+	}
+
+	int num;
+	cout << "Rentrez le numéro de l'attaque voulut : ";
+	cin >> num;
+	return attaques[num-1];
+}
+
+Pokemon Joueur::RecupererPokemon(int i){
+	return pokemon[i];
 }
 
 void Joueur::AfficherPokemons() {
 	for (int i = 0; i < 3; i++) {
+		cout << "Pokemon " << i + 1 << " :" << endl;
 		pokemon[i].Afficher();
 	}
 	return;
