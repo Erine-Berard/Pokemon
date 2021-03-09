@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Pokemon::Pokemon(string Nom, int Prix, vector <string> type, int PV, int Niveau, int Attaque, int Attaquespe, int Defense, int Defensespel, int Vitesse, vector <Attaques> VectorAttaques ,Objet objet)
+Pokemon::Pokemon(string Nom, int Prix, vector <string> type, long double PV, int Niveau, long double Attaque, long double Attaquespe, long double Defense, long double Defensespe, int Vitesse, vector <Attaques> VectorAttaques ,Objet objet)
 	: Nom(Nom), Prix(Prix), type(type), PV(PV), Niveau(Niveau), Attaque(Attaque), Attaquespe(Attaquespe), Defense(Defense), Defensespe(Defensespe), Vitesse(Vitesse), VectorAttaques(VectorAttaques),objet(objet)
 {
 }
@@ -23,7 +23,7 @@ vector<string> Pokemon::GetTypes(){
 	return type;
 }
 
-int Pokemon::GetPV(){
+double Pokemon::GetPV(){
 	return PV;
 }
 
@@ -31,19 +31,19 @@ int Pokemon::GetNiveau(){
 	return Niveau;
 }
 
-int Pokemon::GetAttaque(){
+long double Pokemon::GetAttaque(){
 	return Attaque;
 }
 
-int Pokemon::GetAttaquespe(){
+long double Pokemon::GetAttaquespe(){
 	return Attaquespe;
 }
 
-int Pokemon::GetDefense(){
+long double Pokemon::GetDefense(){
 	return Defense;
 }
 
-int Pokemon::GetDefensespe(){
+long double Pokemon::GetDefensespe(){
 	return Defensespe;
 }
 
@@ -55,7 +55,7 @@ std::vector <Attaques> Pokemon::GetAttaques(){
 	return VectorAttaques;
 }
 
-void Pokemon::SetPV(int pv){
+void Pokemon::SetPV(double pv){
 	this->PV = pv;
 	return; 
 }
@@ -68,7 +68,7 @@ void Pokemon::AjouterAttaque(Attaques *attaques){
 }
 
 void Pokemon::Attaquer(Pokemon& pokemon, Attaques attaques){
-	int degats = attaques.Calculerdegats(*this, pokemon);
+	long double degats = attaques.Calculerdegats(*this, pokemon);
 
 	if (pokemon.PV <= degats) {
 		pokemon.PV = 0;

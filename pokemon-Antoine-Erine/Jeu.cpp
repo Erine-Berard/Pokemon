@@ -14,7 +14,6 @@ void Jeu::Jouer(){
 	//creation des pokemons
 	Objet Oran("Oran", "Restaure 15 PV", 15);
 
-	vector <Pokemon> pokemons;
 	vector <string> type1;
 	type1.push_back("Plante");
 
@@ -25,58 +24,38 @@ void Jeu::Jouer(){
 	type3.push_back("Eau");
 
 	vector <Attaques> attaques1;
+	vector <Attaques> attaques2;
+	vector <Attaques> attaques3;
+	vector <Attaques> attaques4;
+	vector <Attaques> attaques5;
+	vector <Attaques> attaques6;
+	vector <Attaques> attaques7;
+	vector <Attaques> attaques8;
+	vector <Attaques> attaques9;
+
 	Attaques Charge("Charge", "Normal", 0, 1, 5, 4);
 	Attaques TranchHerbe("TranchHerbe", "Plante", 1, 1, 10, 4);
 	Attaques FouetLianes("FouetLianes", "Plante", 0, 0.95, 14, 3);
 	Attaques Belier("Belier", "Normal", 0, 0.5, 25, 1);
-
-	vector <Attaques> attaques2;
 	Attaques Griffe("Griffe", "Normal", 0, 1, 5, 4);
 	Attaques CrocsFeu("CrocsFeu", "Feu", 0, 0.95, 14, 3);
 	Attaques Flammeche("Flammeche", "Feu", 1, 1, 10, 4);
 	Attaques FeudEnfer("FeudEnfer", "Feu", 0, 0.5, 25, 1);
-
-	vector <Attaques> attaques3;
 	Attaques Ecume("Ecume", "Eau", 1, 1, 12, 3);
 	Attaques PistoletaO("PistoletaO", "Eau", 1, 1, 10, 4);
 	Attaques Hydrocanon("Hydrocanon", "Eau", 1, 0.5, 25, 1);
-	Attaques Charge("Charge", "Normal", 0, 1, 5, 4);
-
-	vector <Attaques> attaques4;
-	Attaques Charge("Charge", "Normal", 0, 1, 5, 4);
 	Attaques LanceSoleil("LanceSoleil", "Plante", 1, 0.5, 25, 1);
 	Attaques FeuilleMagik("FeuilleMagik", "Plante", 1, 1, 10, 4);
-	Attaques TranchHerbe("TranchHerbe", "Plante", 1, 1, 10, 4);
-
-	vector <Attaques> attaques5;
 	Attaques FlammeUltime("FlammesUltime", "Feu", 0, 0.5, 25, 1);
 	Attaques RouedeFeu("RouedeFeu", "Feu", 1, 0.95, 14, 3);
-	Attaques Griffe("Griffe", "Normal", 0, 1, 5, 4);
-	Attaques Flammeche("Flammeche", "Feu", 1, 1, 10, 4);
-
-	vector <Attaques> attaques6;
-	Attaques Griffe("Griffe", "Normal", 0, 1, 5, 4);
 	Attaques Morsure("Morsure", "Tenebre", 0, 0.95, 14, 3);
 	Attaques SuperPuissance("SuperPuissance", "Combat", 0, 0.5, 25, 1);
-	Attaques PistoletaO("PistoletaO", "Eau", 1, 1, 10, 4);
-
-	vector <Attaques> attaques7;
 	Attaques EcrasFace("EcrasFace", "Normal", 0, 1, 5, 4);
 	Attaques VoldeVie("VoldeVie", "Plante", 1, 0.95, 14, 3);
 	Attaques ViveAttaque("ViveAttaque", "Normal", 0, 1, 10, 4);
 	Attaques TempeteVerte("TempeteVerte", "Plante", 1, 0.5, 25, 1);
-
-	vector <Attaques> attaques8;
 	Attaques BouteFeu("BouteFeu", "Feu", 1, 0.5, 25, 1);
-	Attaques Flammeche("Flammeche", "Feu", 1, 1, 10, 4);
-	Attaques ViveAttaque("ViveAttaque", "Normal", 0, 1, 10, 4);
-	Attaques Griffe("Griffe", "Normal", 0, 1, 5, 4);
-
-	vector <Attaques> attaques9;
 	Attaques CoudBoue("CoudBoue", "Eau", 0, 0.95, 14, 3);
-	Attaques Hydrocanon("Hydrocanon", "Eau", 1, 0.5, 25, 1);
-	Attaques PistoletaO("PistoletaO", "Eau", 1, 1, 10, 4);
-	Attaques Charge("Charge", "Normal", 0, 1, 5, 4);
 
 	attaques1.push_back(Charge);
 	attaques1.push_back(TranchHerbe);
@@ -198,7 +177,7 @@ void Jeu::Jouer(){
 			Pokemon pokemon2 = joueur2.RecupererPokemon(j - 1);
 		
 		//Combat manche 1
-			while ((KO1 = false) || (KO2 = false)) {
+			while ((KO1 == false) || (KO2 == false)) {
 
 				if (pokemon1.GetVitesse() >= pokemon2.GetVitesse()) {
 
@@ -206,7 +185,7 @@ void Jeu::Jouer(){
 					cout << endl << joueur1.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque1 = joueur1.ChoisirAttaque(pokemon1);
-						double degat = attaque1.Calculerdegats(pokemon1, pokemon2);
+						long double degat = attaque1.Calculerdegats(pokemon1, pokemon2);
 						double pv2 = pokemon2.GetPV();
 						
 						//utilisation de la baie
@@ -237,7 +216,7 @@ void Jeu::Jouer(){
 						cout << endl << joueur2.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque2 = joueur2.ChoisirAttaque(pokemon2);
-						double degat = attaque2.Calculerdegats(pokemon2, pokemon1);
+						degat = attaque2.Calculerdegats(pokemon2, pokemon1);
 						double pv1 = pokemon1.GetPV();
 
 						//utilisation de la baie
@@ -269,7 +248,7 @@ void Jeu::Jouer(){
 						cout << endl << joueur2.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque2 = joueur2.ChoisirAttaque(pokemon2);
-						double degat = attaque2.Calculerdegats(pokemon2, pokemon1);
+						long double degat = attaque2.Calculerdegats(pokemon2, pokemon1);
 						double pv1 = pokemon1.GetPV();
 						
 						//utilisation baie
@@ -299,7 +278,7 @@ void Jeu::Jouer(){
 						cout << endl << joueur1.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque1 = joueur1.ChoisirAttaque(pokemon2);
-						double degat = attaque1.Calculerdegats(pokemon1, pokemon2);
+						degat = attaque1.Calculerdegats(pokemon1, pokemon2);
 						double pv2 = pokemon2.GetPV();
 
 						//utilisation baie

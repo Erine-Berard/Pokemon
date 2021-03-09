@@ -21,7 +21,7 @@ public:
 	Attaques(std::string nom, std::string type, bool attaqueSpecial ,double precision, int puissance, int pp);
 	~Attaques();
 
-	int Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef);
+	long double Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef);
 	void Afficher();
 };
 

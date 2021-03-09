@@ -17,33 +17,33 @@ private:
 	std::string Nom;
 	int Prix;
 	std::vector <std::string> type;
-	int PV;
+	long double PV;
 	int Niveau;
-	int Attaque;
-	int Attaquespe;
-	int Defense;
-	int Defensespe;
+	long double Attaque;
+	long double Attaquespe;
+	long double Defense;
+	long double Defensespe;
 	int Vitesse;
 	std::vector <Attaques> VectorAttaques;
 	Objet objet;
 
 public: 
-	Pokemon(std::string Nom, int Prix, std::vector <std::string > type, int PV, int Niveau, int Attaque, int Attaquespe, int Defense, int Defensespe, int Vitesse, std::vector <Attaques> VectorAttaques, Objet objet);
+	Pokemon(std::string Nom, int Prix, std::vector <std::string > type, long double PV, int Niveau, long double Attaque, long double Attaquespe, long double Defense, long double Defensespe, int Vitesse, std::vector <Attaques> VectorAttaques, Objet objet);
 	~Pokemon();
 
 	std::string GetNom();
 	int GetPrix();
 	std::vector <std::string> GetTypes();
-	int GetPV();
+	double GetPV();
 	int GetNiveau();
-	int GetAttaque();
-	int GetAttaquespe();
-	int GetDefense();
-	int GetDefensespe();
+	long double GetAttaque();
+	long double GetAttaquespe();
+	long double GetDefense();
+	long double GetDefensespe();
 	int GetVitesse();
 	std::vector <Attaques> GetAttaques();
 
-	void SetPV(int pv);
+	void SetPV(double pv);
 
 	void AjouterAttaque(Attaques *attaques);
 	void Attaquer(Pokemon& pokemon, Attaques attaques);

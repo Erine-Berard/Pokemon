@@ -1,0 +1,5 @@
+﻿  Jeu.cpp
+  Joueur.cpp
+C:\Users\Erine\Documents\GitHub\Pokemon\pokemon-Antoine-Erine\Joueur.cpp(67,28): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  Génération de code en cours...
+  pokemon-Antoine-Erine.vcxproj -> C:\Users\Erine\Documents\GitHub\Pokemon\x64\Debug\pokemon-Antoine-Erine.exe

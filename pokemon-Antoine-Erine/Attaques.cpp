@@ -10,13 +10,12 @@ Attaques::~Attaques() {}
 
 // précision !!!!
 
-int Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
+long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
 	long double PVperdu = 0 ;
 
 	vector <string> type = pokemonAttaque.GetTypes();
 
-	int tail = type.size();
-	if (tail == 1) {
+	if (type.size() == 1) {
 
 		string type1 = type[0];
 
@@ -41,7 +40,7 @@ int Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
 			return -1;
 		}
 
-	}else if (tail == 2) {
+	}else if (type.size() == 2) {
 		string type1 = type[0];
 		string type2 = type[1];
 
