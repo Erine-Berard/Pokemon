@@ -1,5 +1,5 @@
-#include "Pokemon.h"
-S
+#include "Jeu.h"
+
 
 #include <vector>
 #include <iostream>
@@ -12,13 +12,16 @@ using namespace std;
 
 int main() {
 
+	bool jouer = false;
 
+	do {
+		Jeu partie;
+		partie.Jouer();
 
-	vector <string> type;
-	type.push_back("eau");
-	type.push_back("feu");
+		
+		cout << endl << endl << "Voulez vous rejouer ? [1/0]";
+		cin >> jouer;
+		cout << endl << endl;
+	} while (jouer);
 
-	int tail = type.size();
-
-	cout << tail << endl << type[0] << endl << type[1];
 }

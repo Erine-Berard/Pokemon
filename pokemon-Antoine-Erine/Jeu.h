@@ -12,6 +12,8 @@ class Jeu {
 private:
 	std::vector <Joueur> joueur;
 public: 
+	Jeu();
+	~Jeu();
 	void Jouer();
 };
 

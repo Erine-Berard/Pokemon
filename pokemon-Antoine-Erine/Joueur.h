@@ -21,6 +21,7 @@ public:
 	~Joueur();
 
 	std::string GetNom();
+	int GetNbVictoire();
 
 	void setNbVictoire(int nbVictoire);
 	void setArgent(int argent);

@@ -15,6 +15,10 @@ string Joueur::GetNom(){
 	return nom;
 }
 
+int Joueur::GetNbVictoire(){
+	return nbVictoire;
+}
+
 void Joueur::setNbVictoire(int nbVictoire) {
 	this->nbVictoire = nbVictoire;
 	return;
