@@ -169,6 +169,8 @@ void Jeu::Jouer(){
 	bool KO1 = false;
 	bool KO2 = false;
 
+	while (())
+
 	while ((KO1 = false) || (KO2 = false)) {
 
 		cout << endl << endl << "---------- Manche 1 ----------" << endl;
