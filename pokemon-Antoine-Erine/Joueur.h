@@ -22,12 +22,13 @@ public:
 
 	std::string GetNom();
 	int GetNbVictoire();
+	Pokemon Getpokemon(int i);
 
 	void setNbVictoire(int nbVictoire);
 	void setArgent(int argent);
 
 	void ChoisirPokemon(std::vector <Pokemon> poke);
-	void AjouterPokemon(Pokemon& poke);
+	int AjouterPokemon(Pokemon poke);
 	Attaques ChoisirAttaque(Pokemon);
 	Pokemon RecupererPokemon(int i);
 	void AfficherPokemons();

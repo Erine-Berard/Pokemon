@@ -8,7 +8,15 @@ Attaques::Attaques(string nom, std::string type, bool attaqueSpecial,double prec
 
 Attaques::~Attaques() {}
 
-// précision !!!!
+void Attaques::SetPP(int pp){
+	this->pp = pp;
+	return;
+}
+
+int Attaques::GetPP(){
+	return pp;
+}
+
 
 long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
 	long double PVperdu = 0 ;
@@ -21,18 +29,18 @@ long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef)
 
 		if (attaqueSpecial == false) {
 			if (type1 == this->type) {
-				PVperdu = ((((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * 1.5) / 100) * precision;
+				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * 1.5)* precision;
 			}
 			else {
-				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) / 100) * precision;
+				PVperdu = ((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * precision;
 			}
 		}
 		else if (attaqueSpecial == true) {
 			if (type1 == this->type) {
-				PVperdu = ((((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * 1.5) / 100) * precision;
+				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * 1.5) * precision;
 			}
 			else {
-				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) / 100) * precision;
+				PVperdu = ((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * precision;
 			}
 		}
 		else {
@@ -46,18 +54,18 @@ long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef)
 
 		if (attaqueSpecial == false) {
 			if ((type1 == this->type)||(type2 == this->type)){
-				PVperdu = ((((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * 1.5) / 100) * precision;
+				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * 1.5) * precision;
 			}
 			else {
-				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) / 100) * precision;
+				PVperdu = ((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaque() * puissance) / (pokemonDef.GetDefense() * 50)) + 2) * precision;
 			}
 		}
 		else if (attaqueSpecial == true) {
 			if ((type1 == this->type) || (type2 == this->type)) {
-				PVperdu = ((((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * 1.5) / 100) * precision;
+				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * 1.5) * precision;
 			}
 			else {
-				PVperdu = (((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) / 100) * precision;
+				PVperdu = ((((pokemonAttaque.GetNiveau() * 0.4 + 2) * pokemonAttaque.GetAttaquespe() * puissance) / (pokemonDef.GetDefensespe() * 50)) + 2) * precision;
 			}
 		}
 		else {

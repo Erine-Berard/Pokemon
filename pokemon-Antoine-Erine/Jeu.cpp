@@ -162,13 +162,37 @@ void Jeu::Jouer(){
 
 		//Choix des pokemons
 			cout << "Joueur 1 :" << endl << "    Choix de votre pokemon:" << endl;
-			joueur1.AfficherPokemons();
+			for (int i = 0; i < 3; i++) {
+				Pokemon poke = joueur1.Getpokemon(i);
+				cout << "Pokemon " << i+1 << " : " << poke.GetNom() << endl
+					<< "voulez vous plus d'info ?(oui:1 / non:0)  ";
+				bool v;
+				cin >> v;
+				if (v) {
+					cout << endl;
+					poke.Afficher();
+				}
+				cout << endl;
+			}
+			
 			cout << "Donnez le numero du pokemon choisis : ";
 			cin >> j;
 			Pokemon pokemon1 = joueur1.RecupererPokemon(j - 1);
 
-			cout << "Joueur 2 :" << endl << "    Choix de votre pokemon:" << endl;
-			joueur2.AfficherPokemons();
+			cout << "Joueur 2 :" << endl << endl << "    Choix de votre pokemon:" << endl;
+			for (int i = 0; i < 3; i++) {
+				Pokemon poke = joueur1.Getpokemon(i);
+				cout << "Pokemon " << i + 1 << " : " << poke.GetNom() << endl
+					<< "voulez vous plus d'info ?(oui:1 / non:0)  ";
+				bool v;
+				cin >> v;
+				if (v) {
+					cout << endl;
+					poke.Afficher();
+				}
+				cout << endl;
+			}
+
 			cout << "Donnez le numero du pokemon choisis : ";
 			cin >> j;
 			Pokemon pokemon2 = joueur2.RecupererPokemon(j - 1);
@@ -179,7 +203,7 @@ void Jeu::Jouer(){
 				if (pokemon1.GetVitesse() >= pokemon2.GetVitesse()) {
 
 					//joueur 1 joue
-					cout << endl << joueur1.GetNom() << " a toi de jouer" << endl
+					cout << endl << "-----" << joueur1.GetNom() << " a toi de jouer -----" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque1 = joueur1.ChoisirAttaque(pokemon1);
 						long double degat = attaque1.Calculerdegats(pokemon1, pokemon2);
@@ -210,7 +234,7 @@ void Jeu::Jouer(){
 							}
 
 					//joueur 2 joue
-						cout << endl << joueur2.GetNom() << " a toi de jouer" << endl
+						cout << endl << "-----" << joueur2.GetNom() << " a toi de jouer" << "-----" << endl
 							<< "Choisis ton attaque :" << endl;
 						Attaques attaque2 = joueur2.ChoisirAttaque(pokemon2);
 						degat = attaque2.Calculerdegats(pokemon2, pokemon1);

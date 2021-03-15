@@ -104,6 +104,19 @@ void Pokemon::AfficherAttaques(){
 	return;
 }
 
+void Pokemon::Afficherbis(){
+	cout << "Nom :" << GetNom() << endl;
+	cout << "Prix :" << GetPrix() << endl;
+	cout << "Type :";
+	int tail(type.size());
+
+	for (int i = 0; i < tail; ++i) {
+		cout << type[i] << ", ";
+
+	}
+}
+
+
 void Pokemon::Afficher(){
 	cout << "     Son Nom : " << Nom << endl
 	    << "     Son prix : " << Prix << endl

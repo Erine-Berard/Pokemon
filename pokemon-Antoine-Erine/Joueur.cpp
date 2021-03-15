@@ -19,6 +19,10 @@ int Joueur::GetNbVictoire(){
 	return nbVictoire;
 }
 
+Pokemon Joueur::Getpokemon(int i){
+	return pokemon[i];
+}
+
 void Joueur::setNbVictoire(int nbVictoire) {
 	this->nbVictoire = nbVictoire;
 	return;
@@ -40,28 +44,34 @@ void Joueur::ChoisirPokemon(vector <Pokemon> poke) {
 	//choix du pokemon
 	int num;
 	for (int i = 0; i < 3; i++) {
-		cout << "Rentrez le numero du pokemon voulut : ";
-		cin >> num;
-		this->AjouterPokemon(poke[num - 1]);
+		int a;
+		do {
+			cout << "Rentrez le numero du pokemon voulut : ";
+			cin >> num;
+			num -= 1;
+			Pokemon lala = poke[num];
+
+			a = this->AjouterPokemon(poke[num]);
+		} while (a == 0);
 	}
 
 	return;
 }
 //faire boucle while 
 
-void Joueur::AjouterPokemon(Pokemon& poke){
-	for (int i = 2; i < 1; i++) {
-		int prix = poke.GetPrix();
-		if (prix > argent) {
-			cout << endl << "Le pokemon est trop cher selectioner un autre !" << endl;
-		}
-		else {
-			argent -= prix;
-			pokemon.push_back(poke);
-			i = -3;
-		}
+int Joueur::AjouterPokemon(Pokemon poke){
+
+	int prix = poke.GetPrix();
+
+	if (prix > argent) {
+		cout << endl << "Le pokemon est trop cher selectione en un autre !" << endl;
+		return 0;
 	}
-	return;
+	else {
+		argent -= prix;
+		pokemon.push_back(poke);
+		return 1;
+	}
 }
 
 Attaques Joueur::ChoisirAttaque(Pokemon poke){
@@ -75,9 +85,24 @@ Attaques Joueur::ChoisirAttaque(Pokemon poke){
 	}
 
 	int num;
-	cout << "Rentrez le numéro de l'attaque voulut : ";
-	cin >> num;
-	return attaques[num-1];
+	int pp;
+
+	do {
+		cout << "Rentrez le numéro de l'attaque voulut : ";
+		cin >> num;	
+		num -= 1;
+
+		pp = attaques[num].GetPP();
+		if (pp <= 0) {
+			cout << "Vous pouvez pas l'utilser vous avez plus de PP" << endl;
+		}
+	} while (pp <= 0);
+
+	attaques[num].SetPP(pp-1);
+	cout << "lala";
+
+	cout << num;
+	return attaques[num];
 }
 
 Pokemon Joueur::RecupererPokemon(int i){
@@ -88,8 +113,8 @@ void Joueur::AfficherPokemons() {
 	for (int i = 0; i < 3; i++) {
 		cout << "Pokemon " << i + 1 << " :" << endl;
 		cout << i; 
-		Pokemon poke = pokemon[i];
-		cout << "lala";
+		Pokemon poke = pokemon[1];
+
 		poke.Afficher();
 	}
 	return;

@@ -49,6 +49,8 @@ public:
 	void Attaquer(Pokemon& pokemon, Attaques attaques);
 	void UtiliserObjet();
 	bool EstKO();
+
+	void Afficherbis();
 	void AfficherAttaques();
 	void Afficher(); 
 
