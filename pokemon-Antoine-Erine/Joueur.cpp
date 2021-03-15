@@ -29,7 +29,7 @@ void Joueur::setArgent(int argent) {
 	return;
 }
 
-Pokemon Joueur::ChoisirPokemon(vector <Pokemon> poke) {
+void Joueur::ChoisirPokemon(vector <Pokemon> poke) {
 	cout << endl << "Les pokemons proposer :" << endl;
 	// Affiche tout les pokemons 
 	for (int i = 0; i < poke.size(); i++) {
@@ -39,10 +39,13 @@ Pokemon Joueur::ChoisirPokemon(vector <Pokemon> poke) {
 
 	//choix du pokemon
 	int num;
-	cout << "Rentrez le numéro du pokemon voulut : ";
-	cin >> num;
+	for (int i = 0; i < 3; i++) {
+		cout << "Rentrez le numero du pokemon voulut : ";
+		cin >> num;
+		this->AjouterPokemon(poke[num - 1]);
+	}
 
-	return poke[num - 1];
+	return;
 }
 //faire boucle while 
 
@@ -84,7 +87,10 @@ Pokemon Joueur::RecupererPokemon(int i){
 void Joueur::AfficherPokemons() {
 	for (int i = 0; i < 3; i++) {
 		cout << "Pokemon " << i + 1 << " :" << endl;
-		pokemon[i].Afficher();
+		cout << i; 
+		Pokemon poke = pokemon[i];
+		cout << "lala";
+		poke.Afficher();
 	}
 	return;
 }

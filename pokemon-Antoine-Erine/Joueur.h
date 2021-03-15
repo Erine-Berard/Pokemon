@@ -26,7 +26,7 @@ public:
 	void setNbVictoire(int nbVictoire);
 	void setArgent(int argent);
 
-	Pokemon ChoisirPokemon(std::vector <Pokemon> poke);
+	void ChoisirPokemon(std::vector <Pokemon> poke);
 	void AjouterPokemon(Pokemon& poke);
 	Attaques ChoisirAttaque(Pokemon);
 	Pokemon RecupererPokemon(int i);

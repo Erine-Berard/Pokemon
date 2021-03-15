@@ -17,8 +17,8 @@ void Objet::Action(Pokemon &pokemon){
 }
 
 void Objet::Afficher(){
-	cout << "La baie est :" << Nom << endl 
-		<< Description << endl
-		<< "PV rendu : " << RestaurationPV << endl;
+	cout << "       La baie est :" << Nom << endl 
+		<< "           " << Description << endl
+		<< "           PV rendu : " << RestaurationPV << endl << endl;
 	return;
 }

@@ -74,9 +74,9 @@ long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef)
 }
 
 void Attaques::Afficher(){
-	cout << "Son nom : " << nom << endl
-		<< "Son Type : " << type << endl
-		<< "Sa catégorie d'Attaque : ";
+	cout << "       Son nom : " << nom << endl
+		<< "           Son Type : " << type << endl
+		<< "           Sa categorie d'Attaque : ";
 	
 	if (attaqueSpecial) {
 		cout << "Special" << endl;
@@ -85,8 +85,8 @@ void Attaques::Afficher(){
 		cout << "Physique" << endl;
 	}
 		
-	cout << "Sa puissance : " << puissance << endl
-		<< "Nombre d'utilisatione encore possible : " << pp << endl;
+	cout << "           Sa puissance : " << puissance << endl
+		<< "           Nombre d'utilisatione encore possible : " << pp << endl << endl;
 
 	return;
 }

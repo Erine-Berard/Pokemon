@@ -105,23 +105,23 @@ void Pokemon::AfficherAttaques(){
 }
 
 void Pokemon::Afficher(){
-	cout << "Son Nom : " << Nom << endl
-	    << "Son prix : " << Prix << endl
-		<< "Son/ses type/s : ";
+	cout << "     Son Nom : " << Nom << endl
+	    << "     Son prix : " << Prix << endl
+		<< "     Son/ses type/s : ";
 
 	int tail(type.size());
 	for (int i = 0; i < tail; ++i) {
 		cout << type[i] << ", ";
 	}
 
-	cout << endl << "Son nombre de PV : " << PV << endl
-		<< "Son niveau : " << Niveau << endl
-		<< "Sa valeur d'attaque : " << Attaque << endl
-		<< "Sa valeur d'attaque special : " << Attaquespe << endl
-		<< "Sa valeur de defense : " << Defense << endl
-		<< "Sa valeur de defense special : " << Defensespe << endl
-		<< "Sa vitesse d'attaque : " << Vitesse << endl
-		<< "Ses attaques :" << endl; 
+	cout << endl << "     Son nombre de PV : " << PV << endl
+		<< "     Son niveau : " << Niveau << endl
+		<< "     Sa valeur d'attaque : " << Attaque << endl
+		<< "     Sa valeur d'attaque special : " << Attaquespe << endl
+		<< "     Sa valeur de defense : " << Defense << endl
+		<< "     Sa valeur de defense special : " << Defensespe << endl
+		<< "     Sa vitesse d'attaque : " << Vitesse << endl
+		<< "     Ses attaques :" << endl; 
 
 	this->AfficherAttaques();
 
