@@ -37,8 +37,8 @@ void Joueur::ChoisirPokemon(vector <Pokemon> poke) {
 	cout << endl << "Les pokemons proposer :" << endl;
 	// Affiche tout les pokemons 
 	for (int i = 0; i < poke.size(); i++) {
-		cout << "Pokemon " << i + 1 << endl;
-		poke[i].Afficher();
+		cout << "     Pokemon " << i + 1 << endl;
+		poke[i].Afficherbis();
 	}
 
 	//choix du pokemon
@@ -99,9 +99,7 @@ Attaques Joueur::ChoisirAttaque(Pokemon poke){
 	} while (pp <= 0);
 
 	attaques[num].SetPP(pp-1);
-	cout << "lala";
 
-	cout << num;
 	return attaques[num];
 }
 

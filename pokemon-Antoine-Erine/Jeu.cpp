@@ -179,7 +179,7 @@ void Jeu::Jouer(){
 			cin >> j;
 			Pokemon pokemon1 = joueur1.RecupererPokemon(j - 1);
 
-			cout << "Joueur 2 :" << endl << endl << "    Choix de votre pokemon:" << endl;
+			cout << endl << "Joueur 2 :" << endl << endl << "    Choix de votre pokemon:" << endl;
 			for (int i = 0; i < 3; i++) {
 				Pokemon poke = joueur1.Getpokemon(i);
 				cout << "Pokemon " << i + 1 << " : " << poke.GetNom() << endl
@@ -211,7 +211,8 @@ void Jeu::Jouer(){
 						
 						//utilisation de la baie
 							if (!utilisationBaie2) {
-								cout << "Les degats infligé sont de " << degat << "pv, Joueur 2 voullez vous utiliser une baie ?[1/0]";
+								cout << "Les degats inflige sont de " << degat << "pv, et les pv de votre pokemon sont de"<< pokemon2.GetPV() <<
+									"donc joueur 2 voullez vous utiliser une baie ?[1/0]";
 								cin >> baie;
 
 								if (baie) {
