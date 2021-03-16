@@ -74,33 +74,38 @@ int Joueur::AjouterPokemon(Pokemon poke){
 	}
 }
 
-Attaques Joueur::ChoisirAttaque(Pokemon poke){
-	vector<Attaques> attaques = poke.GetAttaques();
+Attaques Joueur::ChoisirAttaque(Pokemon* poke){
+	vector<Attaques*> attaques = poke->GetBisAttaques();
+	vector<Attaques> attaque = poke->GetAttaques();
+
 
 	int tail = attaques.size();
 
 	for (int i = 0; i < tail; i++) {
-		cout << "Attaque "<< i+1 << " :" << endl;
-		attaques[i].Afficher();
+		cout << "Attaque " << i + 1 << " :" << endl;
+		attaque[i].Afficher();
 	}
 
 	int num;
-	int pp;
+	int pp = 0;
 
 	do {
-		cout << "Rentrez le numéro de l'attaque voulut : ";
+		cout << "Rentrez le numero de l'attaque voulut : ";
 		cin >> num;	
 		num -= 1;
 
-		pp = attaques[num].GetPP();
+		pp = attaque[num].GetPP();
+
 		if (pp <= 0) {
 			cout << "Vous pouvez pas l'utilser vous avez plus de PP" << endl;
 		}
 	} while (pp <= 0);
 
-	attaques[num].SetPP(pp-1);
-
-	return attaques[num];
+	pp -= 1;
+	attaques[num]->SetPP(pp);
+	
+	cout << pp;
+	return *attaques[num];
 }
 
 Pokemon Joueur::RecupererPokemon(int i){

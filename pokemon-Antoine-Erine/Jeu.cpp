@@ -61,55 +61,55 @@ void Jeu::Jouer(){
 	attaques1.push_back(TranchHerbe);
 	attaques1.push_back(FouetLianes);
 	attaques1.push_back(Belier);
-	Pokemon Bulbizarre("Bulbizarre", 300, type1, 45, 1, 49, 65, 49, 65, 45, attaques1, Oran);
+	Pokemon Bulbizarre("Bulbizarre", 300, type1, 45, 35, 49, 65, 29, 45, 45, attaques1, Oran);
 
 	attaques2.push_back(Griffe);
 	attaques2.push_back(CrocsFeu);
 	attaques2.push_back(Flammeche);
 	attaques2.push_back(FeudEnfer);
-	Pokemon Salameche("Salameche", 300, type2, 39, 1, 52, 60, 43, 60, 65, attaques2, Oran);
+	Pokemon Salameche("Salameche", 300, type2, 39, 35, 52, 60, 23, 40, 65, attaques2, Oran);
 
 	attaques3.push_back(Charge);
 	attaques3.push_back(Ecume);
 	attaques3.push_back(PistoletaO);
 	attaques3.push_back(Hydrocanon);
-	Pokemon Carapuce("Carapuce", 300, type3, 44, 1, 48, 50, 65, 64, 43, attaques3, Oran);
+	Pokemon Carapuce("Carapuce", 300, type3, 44,35, 48, 50, 45, 44, 43, attaques3, Oran);
 
 	attaques4.push_back(Charge);
 	attaques4.push_back(LanceSoleil);
 	attaques4.push_back(TranchHerbe);
 	attaques4.push_back(FeuilleMagik);
-	Pokemon Germignion("Germignion", 300, type1, 45, 1, 49, 59, 65, 65, 45, attaques4, Oran);
+	Pokemon Germignion("Germignion", 300, type1, 45, 35, 49, 59, 45, 45, 45, attaques4, Oran);
 
 	attaques5.push_back(Charge);
 	attaques5.push_back(RouedeFeu);
 	attaques5.push_back(FlammeUltime);
 	attaques5.push_back(Flammeche);
-	Pokemon Hericendre("Hericendre", 300, type2, 39, 1, 52, 60, 43, 50, 65, attaques5, Oran);
+	Pokemon Hericendre("Hericendre", 300, type2, 39, 35, 52, 60, 23, 30, 65, attaques5, Oran);
 
 	attaques6.push_back(Griffe);
 	attaques6.push_back(SuperPuissance);
 	attaques6.push_back(PistoletaO);
 	attaques6.push_back(Morsure);
-	Pokemon Kaiminus("Kaiminus", 300, type3, 50, 1, 65, 44, 64, 48, 43, attaques6, Oran);
+	Pokemon Kaiminus("Kaiminus", 300, type3, 50, 35, 65, 44, 44, 28, 43, attaques6, Oran);
 
 	attaques7.push_back(EcrasFace);
 	attaques7.push_back(TempeteVerte);
 	attaques7.push_back(ViveAttaque);
 	attaques7.push_back(VoldeVie);
-	Pokemon Arcko("Arcko", 300, type1, 40, 1, 45, 64, 35, 55, 70, attaques7, Oran);
+	Pokemon Arcko("Arcko", 300, type1, 40, 35, 45, 64, 15, 35, 70, attaques7, Oran);
 
 	attaques8.push_back(Griffe);
 	attaques8.push_back(BouteFeu);
 	attaques8.push_back(ViveAttaque);
 	attaques8.push_back(Flammeche);
-	Pokemon Poussifeu("Poussifeu", 300, type2, 45, 1, 60, 70, 40, 50, 45, attaques8, Oran);
+	Pokemon Poussifeu("Poussifeu", 300, type2, 45, 35, 60, 70, 20, 30, 45, attaques8, Oran);
 
 	attaques9.push_back(Charge);
 	attaques9.push_back(Hydrocanon);
 	attaques9.push_back(PistoletaO);
 	attaques9.push_back(CoudBoue);
-	Pokemon Gobou("Gobou", 300, type3, 50, 1, 70, 50, 50, 50, 40, attaques9, Oran);
+	Pokemon Gobou("Gobou", 300, type3, 50, 35, 70, 50, 30, 30, 40, attaques9, Oran);
 
 
 
@@ -205,14 +205,17 @@ void Jeu::Jouer(){
 					//joueur 1 joue
 					cout << endl << "-----" << joueur1.GetNom() << " a toi de jouer -----" << endl
 							<< "Choisis ton attaque :" << endl;
-						Attaques attaque1 = joueur1.ChoisirAttaque(pokemon1);
+						Pokemon* ptrpoke1 = &pokemon1;
+						Attaques attaque1 = joueur1.ChoisirAttaque(ptrpoke1);
+						cout << 2;
 						long double degat = attaque1.Calculerdegats(pokemon1, pokemon2);
 						double pv2 = pokemon2.GetPV();
 						
 						//utilisation de la baie
 							if (!utilisationBaie2) {
-								cout << "Les degats inflige sont de " << degat << "pv, et les pv de votre pokemon sont de"<< pokemon2.GetPV() <<
-									"donc joueur 2 voullez vous utiliser une baie ?[1/0]";
+								cout << "Les degats inflige sont de " << degat << " pv, et les pv de votre pokemon sont de " << pokemon2.GetPV() <<
+									" donc joueur 2 voullez vous utiliser une baie ?[1/0]";
+
 								cin >> baie;
 
 								if (baie) {
@@ -220,6 +223,11 @@ void Jeu::Jouer(){
 									utilisationBaie2 = true;
 								}
 							}
+							else {
+								cout << endl  << "degat : " << degat << "PV restant : " << pokemon2.GetPV() << endl;
+							}
+
+
 						//Prise des degats et vérification du KO
 							if (pv2 <= degat) {
 								pokemon2.SetPV(0);
@@ -237,13 +245,15 @@ void Jeu::Jouer(){
 					//joueur 2 joue
 						cout << endl << "-----" << joueur2.GetNom() << " a toi de jouer" << "-----" << endl
 							<< "Choisis ton attaque :" << endl;
-						Attaques attaque2 = joueur2.ChoisirAttaque(pokemon2);
+						Pokemon* ptrpoke2 = &pokemon2;
+						Attaques attaque2 = joueur2.ChoisirAttaque(ptrpoke2);
 						degat = attaque2.Calculerdegats(pokemon2, pokemon1);
 						double pv1 = pokemon1.GetPV();
 
 						//utilisation de la baie
 							if (!utilisationBaie1) {
-								cout << "Les degats infligé sont de " << degat << "pv, Joueur 1 voullez vous utiliser une baie ?[1/0]";
+								cout << "Les degats inflige sont de " << degat << " pv, et les pv de votre pokemon sont de " << pokemon1.GetPV() <<
+									" donc joueur 1 voullez vous utiliser une baie ?[1/0]";
 								cin >> baie;
 
 								if (baie) {
@@ -251,6 +261,10 @@ void Jeu::Jouer(){
 									utilisationBaie1 = true;
 								}
 							}
+							else {
+								cout << endl  << "degat : " << degat << "PV restant : " << pokemon1.GetPV() << endl;
+							}
+
 						//prise des degats et vérification des KO
 							if (pv1 <= degat) {
 								pokemon1.SetPV(0);
@@ -269,19 +283,27 @@ void Jeu::Jouer(){
 					//Joeur 2 joue
 						cout << endl << joueur2.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
-						Attaques attaque2 = joueur2.ChoisirAttaque(pokemon2);
+						Pokemon* ptrpoke2 = &pokemon2;
+						Attaques attaque2 = joueur2.ChoisirAttaque(ptrpoke2);
 						long double degat = attaque2.Calculerdegats(pokemon2, pokemon1);
 						double pv1 = pokemon1.GetPV();
 						
 						//utilisation baie
-							if (!utilisationBaie1)
-							cout << "Les degats infligé sont de " << degat << "pv, Joueur 1 voullez vous utiliser une baie ?[1/0]";
+						if (!utilisationBaie1) {
+							cout << "Les degats inflige sont de " << degat << " pv, et les pv de votre pokemon sont de " << pokemon1.GetPV() <<
+							" donc joueur 1 voullez vous utiliser une baie ?[1/0]";
+								
 							cin >> baie;
 
 							if (baie) {
 								pokemon1.UtiliserObjet();
 								utilisationBaie1 = true;
 							}
+						}
+						else {
+							cout << endl  << "degat : " << degat << "PV restant : " << pokemon1.GetPV() << endl;
+						}
+							
 						//prise de dégats et vérification des KO
 							if (pv1 <= degat) {
 								pokemon1.SetPV(0);
@@ -299,19 +321,24 @@ void Jeu::Jouer(){
 					//Joueur 1 joue
 						cout << endl << joueur1.GetNom() << " a toi de jouer" << endl
 							<< "Choisis ton attaque :" << endl;
-						Attaques attaque1 = joueur1.ChoisirAttaque(pokemon2);
+						Pokemon* ptrpoke1 = &pokemon1;
+						Attaques attaque1 = joueur1.ChoisirAttaque(ptrpoke1);
 						degat = attaque1.Calculerdegats(pokemon1, pokemon2);
 						double pv2 = pokemon2.GetPV();
 
 						//utilisation baie
 							if (!utilisationBaie2) {
-								cout << "Les degats infligé sont de " << degat << "pv, Joueur 2 voullez vous utiliser une baie ?[1/0]";
+								cout << "Les degats inflige sont de " << degat << " pv, et les pv de votre pokemon sont de " << pokemon2.GetPV() <<
+									" donc joueur 2 voullez vous utiliser une baie ?[1/0]";
 								cin >> baie;
 	
 								if (baie) {
 									pokemon2.UtiliserObjet();
 									utilisationBaie2 = true;
 								}
+							}
+							else {
+								cout  << endl << "degat : " << degat << "PV restant : " << pokemon2.GetPV() << endl;
 							}
 						//prise des dégats vérification KO
 							if (pv1 <= degat) {
@@ -328,6 +355,9 @@ void Jeu::Jouer(){
 				}
 			}
 		}
+
+		k++;
+
 	}while ((joueur1.GetNbVictoire()<2)|| (joueur1.GetNbVictoire() < 2));
 	
 	if (joueur1.GetNbVictoire() == 2) {

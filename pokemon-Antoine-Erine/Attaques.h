@@ -24,6 +24,7 @@ public:
 	void SetPP(int pp);
 	int GetPP();
 
+
 	long double Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef);
 	void Afficher();
 };

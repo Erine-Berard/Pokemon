@@ -29,7 +29,7 @@ public:
 
 	void ChoisirPokemon(std::vector <Pokemon> poke);
 	int AjouterPokemon(Pokemon poke);
-	Attaques ChoisirAttaque(Pokemon);
+	Attaques ChoisirAttaque(Pokemon* poke);
 	Pokemon RecupererPokemon(int i);
 	void AfficherPokemons();
 

@@ -7,6 +7,10 @@ using namespace std;
 Pokemon::Pokemon(string Nom, int Prix, vector <string> type, long double PV, int Niveau, long double Attaque, long double Attaquespe, long double Defense, long double Defensespe, int Vitesse, vector <Attaques> VectorAttaques ,Objet objet)
 	: Nom(Nom), Prix(Prix), type(type), PV(PV), Niveau(Niveau), Attaque(Attaque), Attaquespe(Attaquespe), Defense(Defense), Defensespe(Defensespe), Vitesse(Vitesse), VectorAttaques(VectorAttaques),objet(objet)
 {
+	for (int i = 0;  i < VectorAttaques.size(); i++) {
+		Attaques* ptr = &VectorAttaques[i];
+		VectorPtrAttaques.push_back(ptr);
+	}
 }
 
 Pokemon::~Pokemon() {}
@@ -51,9 +55,14 @@ int Pokemon::GetVitesse(){
 	return Vitesse;
 }
 
-std::vector <Attaques> Pokemon::GetAttaques(){
+vector <Attaques> Pokemon::GetAttaques(){
 	return VectorAttaques;
 }
+
+std::vector<Attaques*> Pokemon::GetBisAttaques(){
+	return VectorPtrAttaques;
+}
+
 
 void Pokemon::SetPV(double pv){
 	this->PV = pv;
@@ -62,8 +71,8 @@ void Pokemon::SetPV(double pv){
 
 
 
-void Pokemon::AjouterAttaque(Attaques *attaques){
-	this->VectorAttaques.push_back(*attaques);
+void Pokemon::AjouterAttaque(Attaques attaques){
+	this->VectorAttaques.push_back(attaques);
 	return;
 }
 

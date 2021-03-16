@@ -18,6 +18,8 @@ int Attaques::GetPP(){
 }
 
 
+
+
 long double Attaques::Calculerdegats(Pokemon pokemonAttaque, Pokemon pokemonDef){
 	long double PVperdu = 0 ;
 

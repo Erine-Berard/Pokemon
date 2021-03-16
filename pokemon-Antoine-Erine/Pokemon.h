@@ -25,6 +25,7 @@ private:
 	long double Defensespe;
 	int Vitesse;
 	std::vector <Attaques> VectorAttaques;
+	std::vector <Attaques*> VectorPtrAttaques;
 	Objet objet;
 
 public: 
@@ -42,10 +43,12 @@ public:
 	long double GetDefensespe();
 	int GetVitesse();
 	std::vector <Attaques> GetAttaques();
+	std::vector <Attaques*> GetBisAttaques();
+
 
 	void SetPV(double pv);
 
-	void AjouterAttaque(Attaques *attaques);
+	void AjouterAttaque(Attaques attaques);
 	void Attaquer(Pokemon& pokemon, Attaques attaques);
 	void UtiliserObjet();
 	bool EstKO();
